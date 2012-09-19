@@ -3,7 +3,6 @@ import hashlib
 import zlib
 import subprocess
 import bz2
-import collections
 
 NUMBER_RANDOM_BYTES = 1024*40
 
@@ -39,6 +38,7 @@ def ensure_have_data_files():
     ensure_bbc_homepage()
     ensure_oliver_twist()
 
+#compression methods
 def bzip(filename):
     compressed_data = bz2.compress(open(filename).read())
     compressed_size = len(compressed_data)
@@ -53,6 +53,7 @@ def gzip(filename):
     return compressed_size, decompressed_data_md5
 
 def luke(filename):
+    #luke put your code here
     return len(open(filename).read()), '0'
 
 def run_technique(file, technique, error_techniques):
